@@ -11,7 +11,9 @@ class WorldTime {
 
   Future<void> getTime() async
   {
-    String apiUrl = 'https://timeapi.io/api/time/current/zone?timeZone=Europe%2FLondon';
+
+    try {
+      String apiUrl = 'https://timeapi.io/api/time/current/$url';
     //make the request
     http.Response response = await http.get(Uri.parse(apiUrl));
     
@@ -33,6 +35,12 @@ class WorldTime {
 
     
   }
+  catch (e) {
+      print('Caught error: $e');
+      time = 'Could not get time data';
+    }
+    }
+    
 
 }
 
