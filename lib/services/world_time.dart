@@ -1,5 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:intl/intl.dart';
 
 class WorldTime {
   String? location; //Location name for the UI
@@ -29,8 +30,12 @@ class WorldTime {
     //print(time);
     print(timezone);
 
+    // Convert datetime string to DateTime object
+    DateTime now = DateTime.parse(datetime);
+
+    //Set time property
+    time = DateFormat.jm().format(now);
     
-    time = datetime.toString();
 
 
     
